@@ -2,6 +2,7 @@
 let myCountOut = document.getElementById("countdown");
 let myDisplay = document.getElementById("numbers-list");
 let myMainOut = document.getElementById("message");
+let mainBtn = document.querySelector("button");
 //seleziono il form
 let myForm = document.getElementById("answers-form");
 //seleziono i valori inseriti
@@ -22,24 +23,20 @@ for (let i = 0; i < myArray.length; i++) {
 
 //faccio partire il timer di 30 secondi   
 // i numeri generati spariscono
-
-
-
-//debug
 console.log(myDisplay.classList);
  //implemento intervallo
         let myCountDown = 30;
         myCountOut.textContent = myCountDown;
-
+        mainBtn.disabled = true;
         const myInterval = setInterval(() => {
             myCountDown--;
             myCountOut.textContent = myCountDown;
-       
-
+        //timer scaduto
         if (myCountDown === 0) {
             clearInterval(myInterval);
             hideNumbs(myDisplay);
-            myMainOut.textContent = "tempo scaduto";
+            myCountOut.textContent = "tempo scaduto";
+            mainBtn.disabled = false;
         }
         }, 1000);
 
