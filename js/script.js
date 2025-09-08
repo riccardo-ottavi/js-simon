@@ -22,11 +22,26 @@ for (let i = 0; i < myArray.length; i++) {
 
 //faccio partire il timer di 30 secondi   
 // i numeri generati spariscono
-const timeOut = setTimeout(hideNumbs, 30000, myDisplay);
+
 
 
 //debug
 console.log(myDisplay.classList);
+ //implemento intervallo
+        let myCountDown = 30;
+        myCountOut.textContent = myCountDown;
+
+        const myInterval = setInterval(() => {
+            myCountDown--;
+            myCountOut.textContent = myCountDown;
+       
+
+        if (myCountDown === 0) {
+            clearInterval(myInterval);
+            hideNumbs(myDisplay);
+            myMainOut.textContent = "tempo scaduto";
+        }
+        }, 1000);
 
 
 //acquisisco i numeri inseriti dall'utente
@@ -61,17 +76,17 @@ myForm.addEventListener("submit",
         } else {
             console.log("siamo qui sconfitta");
             myMainOut.innerHTML = "Hai perso!: hai indovinato: " + rightGuesses
-            }
-});
+        }
+    });
 
 //genera n numeri casuali compresi tra min e max
 function generateRandom(n, min, max) {
     let randomNumbs = [];
     while (randomNumbs.length < n) {
         rand = Math.floor(Math.random() * (max - min + 1)) + min;
-        if (!randomNumbs.includes(rand)){
+        if (!randomNumbs.includes(rand)) {
             randomNumbs.push(rand);
-        } 
+        }
     }
     return randomNumbs;
 }
