@@ -3,6 +3,7 @@ let myCountOut = document.getElementById("countdown");
 let myDisplay = document.getElementById("numbers-list");
 let myMainOut = document.getElementById("message");
 let mainBtn = document.querySelector("button");
+let myInputGroup = document.getElementById("input-group");
 //seleziono il form
 let myForm = document.getElementById("answers-form");
 //seleziono i valori inseriti
@@ -35,6 +36,7 @@ console.log(myDisplay.classList);
         if (myCountDown === 0) {
             clearInterval(myInterval);
             hideNumbs(myDisplay);
+            myInputGroup.classList = "d-flex gap-5 d-block"
             myCountOut.textContent = "tempo scaduto";
             mainBtn.disabled = false;
         }
