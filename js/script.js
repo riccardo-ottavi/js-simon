@@ -22,7 +22,7 @@ for (let i = 0; i < myArray.length; i++) {
 
 //faccio partire il timer di 30 secondi   
 // i numeri generati spariscono
-const timeOut = setTimeout(hideNumbs, 3000, myDisplay);
+const timeOut = setTimeout(hideNumbs, 30000, myDisplay);
 
 
 //debug
@@ -36,19 +36,29 @@ myForm.addEventListener("submit",
         const userNumb = myForm.querySelectorAll("input.form-control");
         let guess = [];
         for (let i = 0; i < userNumb.length; i++) {
-            guess.push(userNumb[i].value);
+            guess.push(Number(userNumb[i].value));
         }
-        //debug
         console.log(guess);
-        return guess
-      
-    }
-    
-);
+        //confronto i numeri generati con quelli inseriti dall'utente
+        let guessesCounter = 0;
 
+        for (let i = 0; i < guess.length; i++) {
+            if (myArray.includes(guess[i])) {
+                guessesCounter++;
 
+            } else {
+                console.log("non indovinato!", guess[i]);
+            }
+        }
 
-//confronto i numeri generati con quelli inseriti dall'utente
+        console.log("Totale indovinati:", guessesCounter);
+        if (guessesCounter > 4) {
+            console.log("siamo qui vittoria");
+        } else {
+            console.log("siamo qui sconfitta");
+            }
+});
+
 
 // out: quali e quanti numeri indovinati 
 
