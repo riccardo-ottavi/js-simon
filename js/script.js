@@ -1,7 +1,7 @@
 //acquisisco gli elementi in pagina
 let myCountOut = document.getElementById("countdown");
 let myDisplay = document.getElementById("numbers-list");
-
+let myMainOut = document.getElementById("message");
 //seleziono il form
 let myForm = document.getElementById("answers-form");
 //seleziono i valori inseriti
@@ -45,24 +45,23 @@ myForm.addEventListener("submit",
         for (let i = 0; i < guess.length; i++) {
             if (myArray.includes(guess[i])) {
                 guessesCounter++;
+                console.log("hai indovinato!", guess[i]);
 
             } else {
                 console.log("non indovinato!", guess[i]);
             }
         }
-
+        // out: quali e quanti numeri indovinati 
         console.log("Totale indovinati:", guessesCounter);
         if (guessesCounter > 4) {
             console.log("siamo qui vittoria");
+            myMainOut.innerHTML = "Hai vinto!"
+
         } else {
             console.log("siamo qui sconfitta");
+            myMainOut.innerHTML = "Hai perso!"
             }
 });
-
-
-// out: quali e quanti numeri indovinati 
-
-
 
 //genera n numeri casuali compresi tra min e max
 function generateRandom(n, min, max) {
