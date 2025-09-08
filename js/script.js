@@ -1,6 +1,11 @@
 //acquisisco gli elementi in pagina
-let myCount = document.getElementById("countdown");
+let myCountOut = document.getElementById("countdown");
 let myDisplay = document.getElementById("numbers-list");
+
+
+let myForm = document.querySelector("form");
+let userNumb = document.getElementById("input-group");
+
 
 //genero i numeri casuali
 //verifico che i numeri non si ripetino
@@ -16,12 +21,25 @@ for (let i = 0; i < myArray.length; i++) {
 
 //faccio partire il timer di 30 secondi   
 // i numeri generati spariscono
-const timeOut = setTimeout(hideNumbs, 30000, myDisplay);
+const timeOut = setTimeout(hideNumbs, 3000, myDisplay);
+
+
+//debug
+
 console.log(myDisplay.classList);
 
 
-
 //acquisisco i numeri inseriti dall'utente
+myForm.addEventListener("submit",
+    function (event) {
+        event.preventDefault();
+        console.log("siamo qua"); 
+      
+    }
+    
+);
+
+
 
 //confronto i numeri generati con quelli inseriti dall'utente
 
