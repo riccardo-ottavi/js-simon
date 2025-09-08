@@ -2,9 +2,10 @@
 let myCountOut = document.getElementById("countdown");
 let myDisplay = document.getElementById("numbers-list");
 
+//seleziono il form
+let myForm = document.getElementById("answers-form");
+//seleziono i valori inseriti
 
-let myForm = document.querySelector("form");
-let userNumb = document.getElementById("input-group");
 
 
 //genero i numeri casuali
@@ -25,7 +26,6 @@ const timeOut = setTimeout(hideNumbs, 3000, myDisplay);
 
 
 //debug
-
 console.log(myDisplay.classList);
 
 
@@ -33,7 +33,14 @@ console.log(myDisplay.classList);
 myForm.addEventListener("submit",
     function (event) {
         event.preventDefault();
-        console.log("siamo qua"); 
+        const userNumb = myForm.querySelectorAll("input.form-control");
+        let guess = [];
+        for (let i = 0; i < userNumb.length; i++) {
+            guess.push(userNumb[i].value);
+        }
+        //debug
+        console.log(guess);
+        return guess
       
     }
     
