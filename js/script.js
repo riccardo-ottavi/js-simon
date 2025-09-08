@@ -41,11 +41,12 @@ myForm.addEventListener("submit",
         console.log(guess);
         //confronto i numeri generati con quelli inseriti dall'utente
         let guessesCounter = 0;
-
+        let rightGuesses = [];
         for (let i = 0; i < guess.length; i++) {
             if (myArray.includes(guess[i])) {
                 guessesCounter++;
                 console.log("hai indovinato!", guess[i]);
+                rightGuesses.push(guess[i]);
 
             } else {
                 console.log("non indovinato!", guess[i]);
@@ -54,12 +55,12 @@ myForm.addEventListener("submit",
         // out: quali e quanti numeri indovinati 
         console.log("Totale indovinati:", guessesCounter);
         if (guessesCounter > 4) {
-            console.log("siamo qui vittoria");
-            myMainOut.innerHTML = "Hai vinto!"
+            console.log("siamo qui vittoria" + rightGuesses);
+            myMainOut.innerHTML = "Hai vinto! hai indovinato: " + rightGuesses;
 
         } else {
             console.log("siamo qui sconfitta");
-            myMainOut.innerHTML = "Hai perso!"
+            myMainOut.innerHTML = "Hai perso!: hai indovinato: " + rightGuesses
             }
 });
 
